@@ -7,7 +7,7 @@
     "build": "ng build",
     "build-prod-en": "ng build -c=production --deleteOutputPath=false",
     "build-prod-pl": "ng build -c=pl --deleteOutputPath=false",
-    "build-prod": "npm run build-index npm run build-prod-en & npm run build-prod-pl",
+    "build-prod": "npm run build-index & npm run build-prod-en & npm run build-prod-pl",
     "build-index": "copyfiles _redirects index.html dist",
     "test": "ng test",
     "lint": "ng lint",
