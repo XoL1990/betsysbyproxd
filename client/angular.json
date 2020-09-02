@@ -78,8 +78,6 @@
               "localize": [
                 "pl"
               ],
-              "baseHref": "/pl/",
-              "outputPath": "dist/pl/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

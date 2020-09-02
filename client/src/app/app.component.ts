@@ -25,8 +25,6 @@ export class AppComponent implements OnDestroy, OnInit {
   public winString = $localize`Win`;
   public drawString = $localize`Draw`;
 
-  public hideLanguages = environment.production;
-
   private betsSubscription: Subscription;
 
   constructor(private betsService: BetsService) { }
@@ -80,6 +78,10 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   public setLocale(locale: string) {
+    if (environment.production) {
+      alert('In development mode you cannot switch languages');
+      return;
+    }
     localStorage.setItem(AppComponent.LOCALE_KEY, locale);
     this.locale = locale;
     window.location.href = `/${locale.toLowerCase()}`
