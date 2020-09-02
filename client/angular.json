@@ -10,11 +10,22 @@
           "style": "scss"
         }
       },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "pl": {
+            "translation": "locale/messages.pl.xlf",
+            "baseHref": "/pl/"
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
+          "localize": true,
+          "aot": true,
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
@@ -34,6 +45,41 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/en/",
+              "outputPath": "dist/en/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "pl": {
+              "localize": [
+                "pl"
+              ],
+              "baseHref": "/pl/",
+              "outputPath": "dist/pl/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -64,6 +110,8 @@
           }
         },
         "serve": {
+          "localize": true,
+          "aot": true,
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "client:build"
@@ -71,6 +119,9 @@
           "configurations": {
             "production": {
               "browserTarget": "client:build:production"
+            },
+            "pl": {
+              "browserTarget": "client:build:pl"
             }
           }
         },

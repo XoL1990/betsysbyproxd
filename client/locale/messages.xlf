@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="999d4eb9e7eb4d7950476183832365c06426f0f7" datatype="html">
+        <source>Team 1</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a9c16db1d07908ad468c925fb3a36d96b98e9080" datatype="html">
+        <source>Draw</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5cd36aeff7d9513e941bce66b2902334ef241760" datatype="html">
+        <source>Team 2</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="56aa6d938056e0204082a02f7548b3ed5296948d" datatype="html">
+        <source>Call me error. I&apos;m <x id="INTERPOLATION" equiv-text="{{error}}"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="758f0fcaef9374e1f13f87bb413213ec3e45ee00" datatype="html">
+        <source>Win</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/team/team.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

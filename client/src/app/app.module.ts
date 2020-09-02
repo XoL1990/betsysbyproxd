@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TeamComponent } from './components/team/team.component';
 import { ValueComponent } from './components/value/value.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ValueComponent } from './components/value/value.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule

@@ -53,11 +53,9 @@
   }
 
   @include desktop {
-    display: flex;
-    justify-content: center;
-    align-content: center;
     .wrapper {
-      margin-top: 40px;
+      width: 90vw;
+      margin: 100px 5vw 0;
       .row {
         font-size: 16px;
         display: flex;
@@ -71,10 +69,48 @@
         &.header {
           background-color: $background;
           position: fixed;
-          top: 0;
+          top: 50px;
+          left: 0;
           font-size: 18px;
           font-weight: bolder;
           display: flex;
+          width: 90vw;
+          margin: 0 5vw 0;
+          height: 50px;
+        }
+
+        &.top {
+          top: 0;
+          > div {
+            display: flex;
+            padding: 0;
+
+            &.currencies,
+            &.languages {
+              > div {
+                cursor: pointer;
+                color: $text-color-second;
+                font-size: 20px;
+                &.active {
+                  color: $hover-color;
+                  cursor: default;
+                }
+              }
+            }
+            &.currencies {
+              margin-left: 1vw;
+              > div {
+                margin-right: 10px;
+              }
+            }
+
+            &.languages {
+              margin-right: 1vw;
+              > div {
+                margin-left: 10px;
+              }
+            }
+          }
         }
 
         .title {

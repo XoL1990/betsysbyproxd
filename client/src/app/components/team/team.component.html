@@ -1,6 +1,7 @@
 <div class="team" *ngIf="team">
   <div class="name">{{team.name}}</div>
   <div class="win">
-    <app-value [value]="team.win"></app-value>
+    <div class="title" i18n>Win</div>
+    <app-value [value]="team.win" [currency]="currency"></app-value>
   </div>
 </div>

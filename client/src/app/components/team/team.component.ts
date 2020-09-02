@@ -9,6 +9,7 @@ import { Team } from 'src/app/services/bets.service';
 export class TeamComponent implements OnInit {
 
   @Input() team: Team;
+  @Input() currency: string;
 
   constructor() { }
 

@@ -1,20 +1,30 @@
 <div class="wrapper" *ngIf="!loading && !error">
+  <div class="header top row">
+    <div class="currencies">
+      <div [ngClass]="{ active: currency === 'PLN' }" (click)="setCurrency('PLN')">PLN</div>
+      <div [ngClass]="{ active: currency === 'EUR' }" (click)="setCurrency('EUR')">EUR</div>
+    </div>
+    <div class="languages" *ngIf="!hideLanguages">
+      <div [ngClass]="{ active: locale === 'PL' }" (click)="setLocale('PL')">PL</div>
+      <div [ngClass]="{ active: locale === 'EN' }" (click)="setLocale('EN')">EN</div>
+    </div>
+  </div>
   <div class="header row">
-    <app-team [team]="{name: 'Team 1', win: 'Win'}"></app-team>
-    <app-value class="draw" [value]="'Draw'"></app-value>
-    <app-team [team]="{name: 'Team 2', win: 'Win'}"></app-team>
+    <app-team [team]="{name: team1String, win: winString}"></app-team>
+    <app-value class="draw" [value]="drawString"></app-value>
+    <app-team [team]="{name: team2String, win: winString}"></app-team>
   </div>
   <div class="row" *ngFor="let bet of bets; trackBy: trackBy">
-    <div class="title">Team 1 (win)</div>
-    <app-team [team]="getTeam(bet, 0)"></app-team>
-    <div class="title">Draw</div>
-    <app-value class="draw" [value]="bet.draw"></app-value>
-    <div class="title">Team 2 (win)</div>
-    <app-team [team]="getTeam(bet, 1)"></app-team>
+    <div class="title" i18n>Team 1</div>
+    <app-team [team]="getTeam(bet, 0)" [currency]="currency"></app-team>
+    <div class="title" i18n>Draw</div>
+    <app-value class="draw" [value]="bet.draw" [currency]="currency"></app-value>
+    <div class="title" i18n>Team 2</div>
+    <app-team [team]="getTeam(bet, 1)" [currency]="currency"></app-team>
   </div>
 </div>
 <div class="error" *ngIf="!loading && error">
-  <span>Call me error. I'm {{error}}.</span>
+  <span i18n>Call me error. I'm {{error}}.</span>
 </div>
 <div class="loading" *ngIf="loading">
   <div class="lds-roller">

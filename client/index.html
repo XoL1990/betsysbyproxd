@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>BetSys by ProXD</title>
+</head>
+
+<body>
+  <script>
+    var locale = localStorage.getItem("LOCALE_KEY");
+    if (locale) location.href = "/" + locale + "/";
+    else location.href = "/en/";
+  </script>
+</body>
+
+</html>

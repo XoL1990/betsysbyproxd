@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US">
+    <body>
+      <trans-unit id="999d4eb9e7eb4d7950476183832365c06426f0f7">
+        <source>Team 1</source>
+        <target>Zespół 1</target>
+      </trans-unit>
+      <trans-unit id="a9c16db1d07908ad468c925fb3a36d96b98e9080">
+        <source>Draw</source>
+        <target>Remis</target>
+      </trans-unit>
+      <trans-unit id="5cd36aeff7d9513e941bce66b2902334ef241760">
+        <source>Team 2</source>
+        <target>Zespół 2</target>
+      </trans-unit>
+      <trans-unit id="56aa6d938056e0204082a02f7548b3ed5296948d">
+        <source>Call me error. I&apos;m <x id="INTERPOLATION" equiv-text="{{error}}"/>.</source>
+        <target>
+          Nazwij mnie error. Jestem <x id="INTERPOLATION" equiv-text="{{error}}"/>.
+        </target>
+      </trans-unit>
+      <trans-unit id="758f0fcaef9374e1f13f87bb413213ec3e45ee00">
+        <source>Win</source>
+        <target>Wygrana</target>
+      </trans-unit>
+      <trans-unit id="2992659907904826141">
+        <source>Team 1</source>
+        <target>Zespół 1</target>
+      </trans-unit>
+      <trans-unit id="3606245458196336920">
+        <source>Team 2</source>
+        <target>Zespół 2</target>
+      </trans-unit>
+      <trans-unit id="2599830105144924227">
+        <source>Win</source>
+        <target>Wygrana</target>
+      </trans-unit>
+      <trans-unit id="8647687729200262691">
+        <source>Draw</source>
+        <target>Remis</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

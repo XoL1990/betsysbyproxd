@@ -3,7 +3,14 @@
 .team {
   display: flex;
   justify-content: space-between;
+
+  .win {
+    display: flex;
+  }
   @include desktop {
     width: 40vw;
+    .title {
+      display: none;
+    }
   }
 }
