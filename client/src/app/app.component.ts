@@ -35,9 +35,11 @@ export class AppComponent implements OnDestroy, OnInit {
       this.currency = 'EUR';
     }
 
-    this.locale = localStorage.getItem(AppComponent.LOCALE_KEY);
-    if (!this.locale) {
+    if (window.location.href.indexOf('en') >= 0) {
       this.locale = 'EN';
+    }
+    else {
+      this.locale = 'PL';
     }
 
     this.betsSubscription = this.betsService.getBets()
