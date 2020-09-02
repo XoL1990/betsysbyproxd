@@ -1,0 +1,22 @@
+$breakpoint-mobile: 768px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+// colors
+$background: #000;
+$background-second: #222;
+$hover-color: #333;
+$text-color: #a0a0a0;
+$text-color-second: #fff;
+$down-color: rgb(158, 0, 0);
+$up-color: rgb(0, 153, 0);

@@ -1,0 +1,9 @@
+@import '../../../styles.settings.scss';
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  @include desktop {
+    width: 40vw;
+  }
+}

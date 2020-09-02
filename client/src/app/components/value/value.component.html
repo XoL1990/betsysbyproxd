@@ -1,0 +1,2 @@
+<span *ngIf="!isString" [ngClass]="{down: state === -1, up: state === 1}">{{value | number:'1.2-2'}}</span>
+<span *ngIf="isString">{{value}}</span>

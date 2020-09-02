@@ -1,0 +1,30 @@
+<div class="wrapper" *ngIf="!loading && !error">
+  <div class="header row">
+    <app-team [team]="{name: 'Team 1', win: 'Win'}"></app-team>
+    <app-value class="draw" [value]="'Draw'"></app-value>
+    <app-team [team]="{name: 'Team 2', win: 'Win'}"></app-team>
+  </div>
+  <div class="row" *ngFor="let bet of bets; trackBy: trackBy">
+    <div class="title">Team 1 (win)</div>
+    <app-team [team]="getTeam(bet, 0)"></app-team>
+    <div class="title">Draw</div>
+    <app-value class="draw" [value]="bet.draw"></app-value>
+    <div class="title">Team 2 (win)</div>
+    <app-team [team]="getTeam(bet, 1)"></app-team>
+  </div>
+</div>
+<div class="error" *ngIf="!loading && error">
+  <span>Call me error. I'm {{error}}.</span>
+</div>
+<div class="loading" *ngIf="loading">
+  <div class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

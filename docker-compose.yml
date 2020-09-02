@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  api:
+    build: ./api
+    container_name: betsys-api
+    restart: always
+    networks:
+      - probetsysxd
+    ports:
+      - 4000:4000
+    volumes:
+      - ./api/src:/usr/app/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
+
+  client:
+    build: ./client
+    container_name: betsys-client
+    restart: always
+    networks:
+      - probetsysxd
+    ports:
+      - 4200:4200
+    volumes:
+      - ./client/src:/usr/client/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
+
+networks:
+  probetsysxd:
+
+volumes:
+  conf:
+  vhost:
+  html:
+  certs:
