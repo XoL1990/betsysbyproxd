@@ -37,7 +37,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
     this.locale = localStorage.getItem(AppComponent.LOCALE_KEY);
     if (!this.locale) {
-      this.locale = 'EUR';
+      this.locale = 'EN';
     }
 
     this.betsSubscription = this.betsService.getBets()
@@ -78,7 +78,7 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   public setLocale(locale: string) {
-    if (environment.production) {
+    if (!environment.production) {
       alert('In development mode you cannot switch languages');
       return;
     }
