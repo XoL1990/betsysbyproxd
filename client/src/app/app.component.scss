@@ -89,10 +89,10 @@
             &.languages {
               > div {
                 cursor: pointer;
-                color: $text-color-second;
+                color: $hover-color;
                 font-size: 20px;
                 &.active {
-                  color: $hover-color;
+                  color: $text-color-second;
                   cursor: default;
                 }
               }
