@@ -38,6 +38,10 @@ export class BetsService {
 
   public onDisconnect() {
     this.clients--;
+    if (this.clients < 0) {
+      // Should not occurs... But...
+      this.clients = 0;
+    }
     if (this.clients == 0) {
       this.togglePulling(false);
     }
