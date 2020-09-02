@@ -24,8 +24,8 @@ export class BetsService {
   }
 
   public getBetSubscription() {
-    const iterator = this.pubSub.asyncIterator('betsUpdated');
-    return iterator;
+    console.log('getBetSubscription');
+    return this.pubSub.asyncIterator('betsUpdated');
   }
 
   public onConnect() {
@@ -33,6 +33,7 @@ export class BetsService {
       this.togglePulling(true);
     }
     this.clients++;
+    console.log("onConnected " + this.clients);
   }
 
   public onDisconnect() {
@@ -40,6 +41,7 @@ export class BetsService {
     if (this.clients == 0) {
       this.togglePulling(false);
     }
+    console.log("onDisconnected " + this.clients);
   }
 
   private togglePulling(enable: boolean) {
@@ -59,6 +61,7 @@ export class BetsService {
         reconnection: true
       });
       this.socket.on('bet-updated', (data: Bet[]) => {
+        console.log('betsUpdated');
         this.pubSub.publish('betsUpdated', { bets: data })
       });
     }
