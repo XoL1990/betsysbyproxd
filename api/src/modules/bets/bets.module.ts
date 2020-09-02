@@ -21,7 +21,8 @@ import { ConfigModule } from '@nestjs/config';
           },
           onDisconnect: (ws, ctx) => {
             betsSerice.onDisconnect();
-          }
+          },
+          keepAlive: 10000
         }
       }),
       inject: [BetsService]
