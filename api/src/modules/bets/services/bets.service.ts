@@ -43,7 +43,7 @@ export class BetsService {
   }
 
   private togglePulling(enable: boolean) {
-    const url = `${process.env.BETSYS_URL}pulling/${enable ? 'start?rate=2' : 'stop'}`;
+    const url = `${process.env.BETSYS_URL}pulling/${enable ? 'start?rate=1' : 'stop'}`;
     this.http.get(url)
       .pipe(
         map(response => response.data)
