@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Team {
+  name: String!
+  win: Float!
+}
+
+type Bet {
+  id: Float!
+  teams: [Team!]!
+  draw: Float!
+}
+
+type Query {
+  getBets: [Bet!]!
+}
+
+type Subscription {
+  bets: [Bet!]!
+}
