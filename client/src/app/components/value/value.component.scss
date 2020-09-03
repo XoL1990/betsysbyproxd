@@ -5,6 +5,7 @@ span {
   transition: color 1s ease-out;
   min-width: 50px;
   display: block;
+  text-align: right;
 
   &.down {
     color: $down-color;
@@ -16,5 +17,7 @@ span {
 
   @include mobile {
     text-align: right;
+    min-width: 60px;
+    margin-left: 10px;
   }
 }
