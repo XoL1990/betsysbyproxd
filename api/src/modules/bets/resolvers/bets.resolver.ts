@@ -5,21 +5,23 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Resolver()
 export class BetsResolver {
-
-  constructor(private readonly betsService: BetsService) { }
+  constructor(private readonly betsService: BetsService) {}
 
   @Query(() => [Bet])
-  getBets() {
+  getBets(): Promise<Bet[]> {
     return this.betsService.getBets().then(value => {
       if (typeof value === 'string') {
-        throw new HttpException("BetSys probably is offline", HttpStatus.FORBIDDEN);
+        throw new HttpException(
+          'BetSys probably is offline',
+          HttpStatus.FORBIDDEN,
+        );
       }
       return value;
-    })
+    });
   }
 
-  @Subscription(returns => [Bet])
-  bets() {
+  @Subscription(() => [Bet])
+  bets(): AsyncIterator<Bet[]> {
     return this.betsService.getBetSubscription();
   }
 }

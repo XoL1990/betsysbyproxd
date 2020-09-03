@@ -42,7 +42,7 @@ export class GraphQLModule {
             keyFields: ['id'],
             fields: {
               teams: {
-                merge(existing: Team[], incoming: Team[]) {
+                merge: (existing: Team[], incoming: Team[]) => {
                   // optimization
                   if (!existing) {
                     return incoming;
@@ -59,7 +59,7 @@ export class GraphQLModule {
                 }
               },
               draw: {
-                merge(_: number, incoming: number) {
+                merge: (_: number, incoming: number) => {
                   return incoming;
                 }
               }

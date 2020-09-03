@@ -8,9 +8,9 @@ describe('ValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ValueComponent ]
+      declarations: [ValueComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,23 @@ describe('ValueComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show correct value in euro', () => {
+    component.value = 123.66;
+    component.currency = 'EUR';
+    fixture.detectChanges();
+    const valueSpan = fixture.nativeElement.querySelector('span');
+    expect(valueSpan).toBeTruthy();
+    expect(valueSpan.textContent).toContain('€123.66');
+  });
+
+  it('should show string as value', () => {
+    component.value = 'Kolorowe`@!3451<>":}{./23@!#(*&^$)';
+    fixture.detectChanges();
+    const valueSpan = fixture.nativeElement.querySelector('span');
+    expect(valueSpan).toBeTruthy();
+    expect(valueSpan.textContent).toString();
+    expect(valueSpan.textContent).toContain('Kolorowe`@!3451<>":}{./23@!#(*&^$)');
   });
 });

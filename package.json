@@ -1,0 +1,20 @@
+{
+  "name": "betsys_by_proxd",
+  "version": "0.0.1",
+  "scripts": {
+    "install-all": "npm i & npm run install-api & npm run install-client",
+    "install-api": "cd ./api & npm i",
+    "install-client": "cd ./client & npm i",
+    "start": "concurrently --raw --kill-others \"npm run start-local-server\" \"npm run start-docker\"",
+    "start-docker": "docker-compose up",
+    "start-local-server": "node ./node_modules/betsys-fe-assessment/server",
+    "stop-docker": "docker-compose down"
+  },
+  "private": true,
+  "dependencies": {
+    "betsys-fe-assessment": "git+https://gitlab.com/picheli20/betsys-fe-assessment.git"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

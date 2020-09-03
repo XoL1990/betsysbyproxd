@@ -1,12 +1,12 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Team } from './team'
+import { Team } from './team';
 
 @ObjectType()
 export class Bet {
   @Field()
   id: number;
 
-  @Field(type => [Team])
+  @Field(() => [Team])
   teams: Team[] = [];
 
   @Field()

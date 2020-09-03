@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy, OnInit {
-  private static CURRENCY_KEY = "CURRENCY";
-  private static LOCALE_KEY = "LOCALE";
+  private static CURRENCY_KEY = 'CURRENCY';
+  private static LOCALE_KEY = 'LOCALE';
 
   public currency: string;
   public locale: string;
@@ -29,7 +29,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
   constructor(private betsService: BetsService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.currency = localStorage.getItem(AppComponent.CURRENCY_KEY);
     if (!this.currency) {
       this.currency = 'EUR';
@@ -57,7 +57,7 @@ export class AppComponent implements OnDestroy, OnInit {
     this.betsService.liveBets();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.betsSubscription) {
       this.betsSubscription.unsubscribe();
     }
@@ -70,22 +70,22 @@ export class AppComponent implements OnDestroy, OnInit {
     return null;
   }
 
-  public trackBy(index: number, item: Bet) {
+  public trackBy(index: number, item: Bet): number {
     return item.id;
   }
 
-  public setCurrency(currency: string) {
+  public setCurrency(currency: string): void {
     localStorage.setItem(AppComponent.CURRENCY_KEY, currency);
     this.currency = currency;
   }
 
-  public setLocale(locale: string) {
+  public setLocale(locale: string): void {
     if (!environment.production) {
       alert('In development mode you cannot switch languages');
       return;
     }
     localStorage.setItem(AppComponent.LOCALE_KEY, locale);
     this.locale = locale;
-    window.location.href = `/${locale.toLowerCase()}`
+    window.location.href = `/${locale.toLowerCase()}`;
   }
 }

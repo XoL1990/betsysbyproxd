@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './value.component.html',
   styleUrls: ['./value.component.scss']
 })
-export class ValueComponent implements OnInit {
+export class ValueComponent {
 
   public state = 0;
   public isString = false;
@@ -16,12 +16,8 @@ export class ValueComponent implements OnInit {
   private actualValue: number | string = 0;
   private resetTimeout = null;
 
-  get value(): number | string {
-    return this.actualValue;
-  }
-
   get currency(): string {
-    return this.actualCurrency
+    return this.actualCurrency;
   }
 
   @Input() set currency(currency: string) {
@@ -31,14 +27,26 @@ export class ValueComponent implements OnInit {
     }
   }
 
-  @Input() set value(v: number | string) {
-    if (typeof (v) === 'string') {
+  get value(): number | string {
+    return this.actualValue;
+  }
+
+  @Input() set value(value: number | string) {
+    if (typeof (value) === 'string') {
       this.isString = true;
+      this.actualValue = value;
+      return;
     }
-    if (this.actualValue > v) {
+    this.updateState(value);
+    this.originalValue = value;
+    this.actualValue = this.currency === 'EUR' ? value : value * 4.2;
+  }
+
+  private updateState(value: number): void {
+    if (this.actualValue > value) {
       this.state = -1;
     }
-    else if (this.actualValue < v) {
+    else if (this.actualValue < value) {
       this.state = 1;
     }
     if (this.resetTimeout) {
@@ -47,18 +55,5 @@ export class ValueComponent implements OnInit {
     this.resetTimeout = setTimeout(() => {
       this.state = 0;
     }, 1000);
-    if (typeof v === 'string') {
-      this.actualValue = v;
-    }
-    else {
-      this.originalValue = v;
-      this.actualValue = this.currency === 'EUR' ? v : v * 4.2;
-    }
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

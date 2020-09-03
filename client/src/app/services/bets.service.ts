@@ -15,7 +15,7 @@ export interface Bet {
   draw: number;
 }
 
-const listQuery = gql`
+export const listQuery = gql`
   query {
     getBets {
       id
@@ -28,7 +28,7 @@ const listQuery = gql`
   }
 `;
 
-const subscriptionQuery = gql`
+export const subscriptionQuery = gql`
   subscription {
     bets {
       id
@@ -59,7 +59,7 @@ export class BetsService {
     }));
   }
 
-  liveBets() {
+  liveBets(): void {
     this.query.subscribeToMore({
       document: subscriptionQuery,
       updateQuery: (prev, { subscriptionData }) => {

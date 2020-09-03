@@ -16,21 +16,19 @@ import { ConfigModule } from '@nestjs/config';
         playground: !process.env.PROD,
         installSubscriptionHandlers: true,
         subscriptions: {
-          onConnect: async (connectionParams: any, ws, ctx) => {
+          onConnect: async () => {
             betsSerice.onConnect();
           },
-          onDisconnect: (ws, ctx) => {
+          onDisconnect: () => {
             betsSerice.onDisconnect();
           },
-          keepAlive: 10000
-        }
+          keepAlive: 10000,
+        },
       }),
-      inject: [BetsService]
-    })
+      inject: [BetsService],
+    }),
   ],
   providers: [BetsService, BetsResolver],
-  exports: [BetsService]
+  exports: [BetsService],
 })
-export class BetsModule {
-
-}
+export class BetsModule {}
