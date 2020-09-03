@@ -20,6 +20,19 @@
 
       &.header {
         display: none;
+        &.top {
+          background-color: $background;
+          display: flex;
+          flex-direction: row;
+          padding-top: 0;
+          margin-top: 0;
+          font-size: 20px;
+          justify-content: space-between;
+          > div {
+            width: 50%;
+            display: flex;
+          }
+        }
       }
 
       &:hover {
@@ -81,35 +94,10 @@
 
         &.top {
           top: 0;
+          font-size: 20px;
           > div {
             display: flex;
             padding: 0;
-
-            &.currencies,
-            &.languages {
-              > div {
-                cursor: pointer;
-                color: $hover-color;
-                font-size: 20px;
-                &.active {
-                  color: $text-color-second;
-                  cursor: default;
-                }
-              }
-            }
-            &.currencies {
-              margin-left: 1vw;
-              > div {
-                margin-right: 10px;
-              }
-            }
-
-            &.languages {
-              margin-right: 1vw;
-              > div {
-                margin-left: 10px;
-              }
-            }
           }
         }
 
@@ -122,6 +110,32 @@
         }
       }
     }
+  }
+}
+
+.currencies,
+.languages {
+  > div {
+    cursor: pointer;
+    color: $hover-color;
+    &.active {
+      color: $text-color-second;
+      cursor: default;
+    }
+  }
+}
+.currencies {
+  margin-left: 1vw;
+  > div {
+    margin-right: 10px;
+  }
+}
+
+.languages {
+  flex-direction: row-reverse;
+  margin-right: 1vw;
+  > div {
+    margin-left: 10px;
   }
 }
 
